@@ -1,0 +1,4 @@
+"0",""
+"0","D <- data(""diamonds"")"
+"0",""
+"0","ggplot(data = diamonds, aes(x = carat,y=price )) + geom_bar(stat = 'identity', position='stack', width = .9) + facet_wrap(~cut, ncol=3)"

@@ -1,0 +1,2 @@
+"0","ClickbaitData <- read.csv(""dataset.csv"")"
+"0","head(ClickbaitData)"

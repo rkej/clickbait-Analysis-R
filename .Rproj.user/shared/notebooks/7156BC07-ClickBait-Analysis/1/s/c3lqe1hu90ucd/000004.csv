@@ -1,0 +1,8 @@
+"0","ClickbaitLen<- IsClickbait %>%"
+"0","  mutate(titleLen = stri_length(title))"
+"0"," "
+"0","NotClickBaitLen <- ClickbaitData %>%"
+"0","  mutate(titleLen = stri_length(title))"
+"0",""
+"0","NotClickBaitLen %>%"
+"0","  ggplot(aes(x = class, y = titleLen)) + geom_point()"

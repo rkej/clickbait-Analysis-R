@@ -1,0 +1,82 @@
+---
+title: "Activity: Graph Replication"
+author: "Rahul Kejriwal"
+date: "Due Date: 09/24/2019"
+output: html_notebook
+---
+
+
+
+## Front Matter
+
+Install supporting R packages with necessary functions and data sets.
+
+```{r}
+# load packages
+library(mosaic)
+library(mosaicData)  # includes `CPS85 data
+library(tidyverse)# loads a group of useful packages including `ggplot2`
+
+
+# read data sets from R packages
+data("NCHS")      # from the `DataComputing` package
+data("CPS85")     # from the `mosaicData` package
+data("diamonds")  # from the `ggplot2` package
+```
+
+
+###  Problem 5.3 (from DC Exercises)
+
+![](problem5-3.png)
+
+Using the `NCHS` data table, produce the `ggplot2` code that reproduces the above graphic.  Note: The "yes" and "no" in the gray bars refer to whether or not the person is pregnant.  Show your R code and the plot it produces using the empty code chunk below.  
+
+
+```{r}
+ ggplot( data = NCHS, aes(x = bmi)) + geom_density(adjust = 0.4) + aes(colour = sex) + facet_wrap(~pregnant, ncol = 4) + labs(title = "") + theme(legend.position = "right")
+
+
+```
+
+
+
+###  Problem 5.4 (from DC Exercises)
+
+![](problem5-4.png)
+
+
+Using the `CPS85` data table, produce the `ggplot2` code that reproduces the above graphic.  Show your R code and the plot it produces using the empty code chunk below.
+
+
+```{r}
+ggplot(data=CPS85,aes(x=exper,y=wage))+geom_point()+aes(colour = sex) + scale_x_log10() + scale_y_log10() + facet_wrap(~sector, ncol=4)
+ggplot(data=CPS85,aes(x=exper,y=wage)) + geom_point() + aes(colour=married) + facet_wrap(~sector,ncol=4)
+
+head(CPS85)
+```
+
+
+
+### Your Turn: explore the `diamonds` data
+
+*Task: Produce an interesting graphic of the `diamonds` data set.  The graphic should represent AT LEAST 3 variables.  Write a few sentences to describe what you have learned.*
+
+From the visualization we can interpret that the better the cut(fair,good,very good, premium, ideal) the higher the price and better quality of carat.
+
+
+```{r}
+
+D <- data("diamonds")
+
+ggplot(data = diamonds, aes(x = carat,y=price )) + geom_bar(stat = 'identity', position='stack', width = .9) + facet_wrap(~cut, ncol=3)
+
+head(D)
+
+```
+
+
+
+
+### Optional Extension: programming style
+
+The helper functions are great, but they produce ugly code.  Clean up the `ggplot2` code that reproduces the required plots so that it aligns with the R Programming Style Guide Appendix in the *DataComputing* eBook <https://dtkaplan.github.io/DataComputingEbook/>.  

@@ -1,0 +1,1 @@
+"0","ggplot(data=CPS85,aes(x=exper,y=wage)) + geom_point() + aes(colour=married) + facet_wrap(~sector,ncol=4)"

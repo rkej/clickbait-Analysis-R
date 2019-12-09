@@ -1,0 +1,5 @@
+"0","IsClickbait <- ClickbaitData %>%"
+"0","  filter(class != ""False"")"
+"0","NotClickbait <- ClickbaitData %>%"
+"0","  filter(class == ""False"")"
+"0","head(NotClickbait)"
