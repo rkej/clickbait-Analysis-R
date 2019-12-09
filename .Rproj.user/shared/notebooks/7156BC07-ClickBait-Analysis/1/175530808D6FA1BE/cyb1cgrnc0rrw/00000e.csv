@@ -1,0 +1,28 @@
+"0","library(qdap)"
+"2","Loading required package: RColorBrewer
+"
+"2","Registered S3 methods overwritten by 'qdap':
+  method               from
+  t.DocumentTermMatrix tm  
+  t.TermDocumentMatrix tm  
+"
+"2","
+Attaching package: ‘qdap’
+
+"
+"2","The following object is masked from ‘package:stringr’:
+
+    %>%
+
+"
+"2","The following object is masked from ‘package:dplyr’:
+
+    %>%
+
+"
+"2","The following object is masked from ‘package:base’:
+
+    Filter
+
+"
+"0","library(SentimentAnalysis)"
