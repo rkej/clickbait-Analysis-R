@@ -1,3 +1,0 @@
-"0","NotClickBaitLen %>%"
-"0","  head(20) %>%"
-"0","  ggplot(aes(x = class, y = mean(sum(dislikeCount)))) + geom_point()"

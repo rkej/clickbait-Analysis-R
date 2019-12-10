@@ -11,8 +11,10 @@ library(dplyr)
 library(ggplot2)
 library(stringr)
 library(stringi)
+install.packages("qdap", INSTALL_opts = "--no-multiarch")
 ```
 ```{r}
+library(qdap)
 library(SentimentAnalysis)
 ```
 ## R Markdown
@@ -51,8 +53,29 @@ NotClickBaitLen %>%
 ```
 ```{r}
 NotClickBaitLen %>%
-  head(20) %>%
-  ggplot(aes(x = class, y = mean(sum(dislikeCount)))) + geom_point()
+  head(2000) %>%
+  group_by(class) %>%
+  summarise(dislikeCount = mean(sum(dislikeCount)))%>%
+  ggplot(aes(x = class, y = dislikeCount)) + geom_bar(stat = "identity")
+```
+```{r}
+NotClickBaitLen %>%
+  head(2000) %>%
+  group_by(class) %>%
+  summarise(ratioCount = mean(likeCount/dislikeCount))%>%
+  ggplot(aes(x = class, y = ratioCount)) + geom_bar(stat = "identity")
+```
+
+```{r}
+Not<- NotClickBaitLen %>%
+  head(1000) %>%
+  group_by(class) %>%
+  mutate(polarity_title = counts(polarity(title))[, "polarity"])
+Not %>%
+  summarise(meanPol = mean(polarity_title))%>%
+  ggplot(aes(x = class, y = meanPol)) + geom_bar(stat = "identity")
+
+
 ```
 
 

@@ -1,5 +1,0 @@
-"0","NotClickBaitLen %>%"
-"0","  head(1000) %>%"
-"0","  group_by(class) %>%"
-"0","  summarise(ratioCount = mean(titleLen))%>%"
-"0","  ggplot(aes(x = class, y = ratioCount)) + geom_bar(stat = ""identity"")"

@@ -56,7 +56,7 @@ NotClickBaitLen %>%
   head(2000) %>%
   group_by(class) %>%
   summarise(dislikeCount = mean(sum(dislikeCount)))%>%
-  ggplot(aes(x = class, y =dislikeCount)) + geom_bar(stat = "identity")
+  ggplot(aes(x = class, y = dislikeCount)) + geom_bar(stat = "identity")
 ```
 ```{r}
 NotClickBaitLen %>%
@@ -67,11 +67,15 @@ NotClickBaitLen %>%
 ```
 
 ```{r}
-NotClickBaitLen %>%
+Not<- NotClickBaitLen %>%
   head(1000) %>%
   group_by(class) %>%
-  summarise(ratioCount = mean(titleLen))%>%
-  ggplot(aes(x = class, y = ratioCount)) + geom_bar(stat = "identity")
+  mutate(polarity_title = counts(polarity(title))[, "polarity"])
+Not %>%
+  summarise(meanPol = mean(polarity_title))%>%
+  ggplot(aes(x = class, y = meanPol)) + geom_bar(stat = "identity")
+
+
 ```
 
 

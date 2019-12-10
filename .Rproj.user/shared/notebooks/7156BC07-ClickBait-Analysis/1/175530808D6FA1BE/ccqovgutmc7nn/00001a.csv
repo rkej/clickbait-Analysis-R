@@ -1,5 +1,0 @@
-"0","NotClickBaitLen %>%"
-"0","  head(2000) %>%"
-"0","  group_by(class) %>%"
-"0","  summarise(dislikeCount = mean(sum(dislikeCount)))%>%"
-"0","  ggplot(aes(x = class, y =dislikeCount)) + geom_bar(stat = ""identity"")"
