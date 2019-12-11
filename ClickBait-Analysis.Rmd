@@ -10,8 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(ggplot2)
 library(stringr)
+library(tidyverse)
 library(stringi)
-install.packages("qdap", INSTALL_opts = "--no-multiarch")
 ```
 ```{r}
 library(qdap)
@@ -25,14 +25,21 @@ When you click the **Knit** button a document will be generated that includes bo
 
 ```{r}
 ClickbaitData <- read.csv("dataset.csv")
-head(ClickbaitData)
+ClickbaitData2 <- read.csv("clickBait_Data.csv")
+ClickbaitData2 <- ClickbaitData2 %>%
+  mutate(clickbait = recode(clickbait, `0` = "False", `1` = "True")) %>%
+  rename(class = clickbait) %>%
+  rename(title = titles)
+JoinedData <- merge(x = ClickbaitData, y = ClickbaitData2, by = "title", all = TRUE)
+JoinedData %>%
+  head()
 ```
 
-## Including Plots
 
 You can also embed plots, for example:
 Classifying Data 
 ```{r}
+# analyzing data
 IsClickbait <- ClickbaitData %>%
   filter(class != "False")
 NotClickbait <- ClickbaitData %>%
@@ -45,7 +52,8 @@ ClickbaitLen<- IsClickbait %>%
  
 NotClickBaitLen <- ClickbaitData %>%
   mutate(titleLen = stri_length(title))
-
+NotClickBaitLen <- ClickbaitData %>%
+  mutate(titleLen = stri_length(title))
 NotClickBaitLen %>%
   ggplot(aes(x = class, y = titleLen)) + geom_point()
 
@@ -55,27 +63,35 @@ NotClickBaitLen %>%
 NotClickBaitLen %>%
   head(2000) %>%
   group_by(class) %>%
-  summarise(dislikeCount = mean(sum(dislikeCount)))%>%
+  summarise(dislikeCount = mean(dislikeCount))%>%
   ggplot(aes(x = class, y = dislikeCount)) + geom_bar(stat = "identity")
 ```
 ```{r}
 NotClickBaitLen %>%
-  head(2000) %>%
-  group_by(class) %>%
-  summarise(ratioCount = mean(likeCount/dislikeCount))%>%
-  ggplot(aes(x = class, y = ratioCount)) + geom_bar(stat = "identity")
+  head(1000) %>%
+  ggplot(aes(x = likeCount, y = dislikeCount, shape = class)) + geom_point()
 ```
 
 ```{r}
 Not<- NotClickBaitLen %>%
   head(1000) %>%
-  group_by(class) %>%
   mutate(polarity_title = counts(polarity(title))[, "polarity"])
 Not %>%
+  group_by(class)%>%
   summarise(meanPol = mean(polarity_title))%>%
   ggplot(aes(x = class, y = meanPol)) + geom_bar(stat = "identity")
 
 
+
 ```
 
+```{r}
+#Decision Tree
+Not <- Not %>%
+  mutate(class = recode(class, `True` = 1, `False` = 0))
 
+mod1 <- party::ctree(
+  class ~ polarity_title + likeCount/dislikeCount,
+  data=Not) 
+plot(mod1, type="simple")
+```
