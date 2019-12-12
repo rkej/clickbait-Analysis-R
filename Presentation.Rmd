@@ -1,0 +1,39 @@
+---
+title: "Presentation"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Our research question: How to best tell if a YouTube video is clickbait or not?
+This data is pulled from web scraping YouTube videos. As avid YouTube watchers, we find it very annoying wasting time on click-bait videos so this analysis will help us identify the chance of a video being click-bait. We got one of our main datasets from one of our machine learning courses, which was pulled from web scraping YouTube videos and he classified into true and false selecting if a video is clickbait or not. 
+
+It was difficult to figure out which features should affect whether a video is click-bait or not. There are many different features to look at and not all are tidy ready data. For example, we had the image thumbnails but it was difficult processing the data and unable to get any clear results even though the thumbnail is one of the first features a user sees.
+
+
+
+```{r}
+library(dplyr)
+library(ggplot2)
+library(stringr)
+library(tidyverse)
+library(stringi)
+library(qdap)
+
+```
+
+## Our key analysis:
+We did figure out a lot of features in our data that helo us know if a dataset is clickbait or not. Through this visual, we intend to show the mean of the polarities of a clickbait and non clickbait video. 
+```{r}
+ClickbaitData <- read.csv("dataset.csv")
+Not<- ClickbaitData %>%
+  mutate(polarity_title = counts(polarity(title))[, "polarity"])
+Not %>%
+  group_by(class)%>%
+  summarise(meanPol = mean(polarity_title))%>%
+  ggplot(aes(x = class, y = meanPol)) + geom_bar(stat = "identity")
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

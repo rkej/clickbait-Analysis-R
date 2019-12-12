@@ -18,10 +18,10 @@ output:  html_notebook
 *Description: (1) Analysis includes at least two different data sources. (2) Primary data source may NOT be loaded from an R package--though supporting data may. (3) Access to all data sources is contained within the analysis. (4) Imported data is inspected at beginning of analysis using one or more R functions: e.g., str, glimpse, head, tail, names, nrow, etc*
 
 (A) .Rmd Line numbers where at least two different data sources are imported:  
-
+Done
 
 (B) .Rmd Line numbers for inspecting data intake:  
-
+Done
 
 ### Data Wrangling (5 out of 8 required)
 
@@ -29,10 +29,10 @@ output:  html_notebook
 
 
 (A) .Rmd Line number(s) for general data wrangling: 
-
+Done
 
 (B) .Rmd Line number(s) for a join operation: 
-
+Done
 
 (C) .Rmd Line number(s) for a spread or gather operation (or equivalent):
 
@@ -41,7 +41,7 @@ output:  html_notebook
 
 
 (E) .Rmd Line number(s) for use of reduction and/or transformation functions: 
-
+Done
 
 (F) .Rmd Line number(s) for use of user-defined functions: 
 
@@ -50,7 +50,7 @@ output:  html_notebook
 
 
 (H) .Rmd Line number(s) for use of machine learning (not "wrangling" but scored here): 
-
+Done
 
 
 ### Data Visualization (3 of 5 required)
@@ -59,15 +59,15 @@ output:  html_notebook
 
 
 (A) .Rmd Line number(s) for use of mulitple different geoms:  
-
+     Done
 (B) .Rmd Line number(s) for use of multiple aesthetics:  
-
+     Done
 (C) .Rmd Line number(s) for use of layered graphics:  
 
 (D) .Rmd Line number(s) for use of leaflet maps:  
 
 (E) .Rmd Line number(s) for use of decision tree or dendogram results:    
-
+     Done
 
 
 
