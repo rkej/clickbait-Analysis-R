@@ -1,6 +1,6 @@
 ---
 title: "Clickbait-analysis"
-output: html_document
+output: html_notebook
 ---
 
 # Research Question
