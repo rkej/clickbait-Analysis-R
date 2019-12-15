@@ -119,3 +119,5 @@ mod1 <- party::ctree(
   data=PolData) 
 plot(mod1, type="simple")
 ```
+### Conclusion
+To conclude, we had a huge dataset and a lot of features that could help us analyse if a video is clickbait or not. Our key visualizations and analysis found that a title's polarity, dislikeCount to like Count ratio are 2 of the main factors which can help us know if a video is clickbait or not. We could use this analysis further to create Machine Learning algorithms which can tlell if a video is clickbait or not in real time. 

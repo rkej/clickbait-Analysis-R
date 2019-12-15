@@ -25,7 +25,7 @@ library(qdap)
 ```
 
 ## Our key analysis:
-We did figure out a lot of features in our data that helo us know if a dataset is clickbait or not. Through this visual, we intend to show the mean of the polarities of a clickbait and non clickbait video. 
+We did figure out a lot of features in our data that help us know if a dataset is clickbait or not. Through this visual, we intend to show the mean of the polarities of a clickbait and non clickbait video. 
 ```{r}
 ClickbaitData <- read.csv("dataset.csv")
 Not<- ClickbaitData %>%
