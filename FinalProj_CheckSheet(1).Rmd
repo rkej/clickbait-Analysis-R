@@ -18,10 +18,10 @@ output:  html_notebook
 *Description: (1) Analysis includes at least two different data sources. (2) Primary data source may NOT be loaded from an R package--though supporting data may. (3) Access to all data sources is contained within the analysis. (4) Imported data is inspected at beginning of analysis using one or more R functions: e.g., str, glimpse, head, tail, names, nrow, etc*
 
 (A) .Rmd Line numbers where at least two different data sources are imported:  
-Done
+  32-33
 
 (B) .Rmd Line numbers for inspecting data intake:  
-Done
+    39-40
 
 ### Data Wrangling (5 out of 8 required)
 
@@ -29,28 +29,21 @@ Done
 
 
 (A) .Rmd Line number(s) for general data wrangling: 
-Done
+    70-73, 80-86, 100-105, 114-119
 
 (B) .Rmd Line number(s) for a join operation: 
-Done
+    38-39
 
 (C) .Rmd Line number(s) for a spread or gather operation (or equivalent):
-
+    46-48
 
 (D) .Rmd Line number(s) for use of regular expressions: 
-
+    68
 
 (E) .Rmd Line number(s) for use of reduction and/or transformation functions: 
-Done
-
-(F) .Rmd Line number(s) for use of user-defined functions: 
+    35, 71, 73
 
 
-(G) .Rmd Line number(s) for use of loops and/or control flow: 
-
-
-(H) .Rmd Line number(s) for use of machine learning (not "wrangling" but scored here): 
-Done
 
 
 ### Data Visualization (3 of 5 required)
@@ -59,15 +52,15 @@ Done
 
 
 (A) .Rmd Line number(s) for use of mulitple different geoms:  
-     Done
+     geom_point and geom_bar can be found in 70, 85, 97, 105, 118
 (B) .Rmd Line number(s) for use of multiple aesthetics:  
-     Done
+     105
 (C) .Rmd Line number(s) for use of layered graphics:  
-
+    
 (D) .Rmd Line number(s) for use of leaflet maps:  
 
 (E) .Rmd Line number(s) for use of decision tree or dendogram results:    
-     Done
+     132
 
 
 

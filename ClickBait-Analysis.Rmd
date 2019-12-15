@@ -61,6 +61,16 @@ NotClickbait <- ClickbaitData %>%
   filter(class == "False")
 head(NotClickbait)
 ```
+### Analysys 4: Number of capital letters
+We see if the number of capital tletters in titles show any significance as a factor or not. 
+```{r}
+LenCaps <- ClickbaitData %>%
+  mutate(capsLen = stri_count_regex(title, "[A-Z]"))
+LenCaps %>%
+  ggplot(aes(x = class, y = capsLen)) + geom_bar(stat = "identity")
+
+```
+We see there's a strong correlation between the average number of uppercase letters in a clickbait video to a video that is not clickbait. 
 
 ### Analysis 4: Analysing how length of titles are related to class
 Looking at the plot below, we can see that there is a normal range of title lengths from 10-100 characters and then if a video is clickbait, it can be less that the 10 character average. 
@@ -95,6 +105,8 @@ LenData %>%
   ggplot(aes(x = likeCount, y = dislikeCount, color = class)) + geom_point()
 ```
 It looks like a video being a clickbait has a higher dislike to likes ratio and also has many outliers. 
+
+
 ### Analysis 7: Sentimental Analysis
 Up next for analysis is sentimental analysis. Using the Qdap's library function to get polarities of a string, we see if clickbait titles have more polarities - meaning being more positive, happy, which would attract people to click on these videos. 
 ```{r}
@@ -119,5 +131,6 @@ mod1 <- party::ctree(
   data=PolData) 
 plot(mod1, type="simple")
 ```
+
 ### Conclusion
 To conclude, we had a huge dataset and a lot of features that could help us analyse if a video is clickbait or not. Our key visualizations and analysis found that a title's polarity, dislikeCount to like Count ratio are 2 of the main factors which can help us know if a video is clickbait or not. We could use this analysis further to create Machine Learning algorithms which can tlell if a video is clickbait or not in real time. 
