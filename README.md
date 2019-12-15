@@ -2,7 +2,6 @@
 title: "Clickbait-analysis"
 output: html_document
 ---
-
 # Research Question
 How to best tell if a video is click-bait or not?
 
